@@ -23,20 +23,19 @@ jobs:
      steps:
         - checkout
         - add_ssh_keys:
-           fingerprints: ["be:4e:c4:82:dc:ad:1c:c3:52:1b:83:ea:55:df:9b:1e:43:dc:f0:33"] 
+            fingerprints: ["be:4e:c4:82:dc:ad:1c:c3:52:1b:83:ea:55:df:9b:1e:43:dc:f0:33"] 
         - run:
-           name: Install Ansible
-           command: |
-             apk add --update ansible
+            name: Install Ansible
+            command: |
+              apk add --update ansible
         - run:
-           name: Run Playbook and Configure server
-           command: |
-             ansible-playbook -i inventory main-remote.yml  
+            name: Run Playbook and Configure server
+            command: |
+              ansible-playbook -i inventory main-remote.yml  
                 
 workflows:
   DeploymentFlow:
     jobs:
 #       - create_infrastructure
       - configure_infrastructure
-     
      
